@@ -3,6 +3,8 @@ import { Text, View, Button, Platform } from 'react-native';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 
+Notifications.cancelAllScheduledNotificationsAsync();
+
 /*Noah Note: This handler determines how the app will handle a notification if the app is currently open. It takes in the incoming 
 notification as an arugment. 
 */
@@ -19,13 +21,17 @@ and can be repeated
 */
 Notifications.scheduleNotificationAsync({
   content: {
-    title: "Time's up!",
-    body: 'Change sides!',
+    title: "On Schedule!",
+    body: '',
   },
   trigger: {
-    seconds: 60,
+    hour: 21,
+    minute: 7,
+    repeats: true,
   },
 });
+
+Notifications.dismissAllNotificationsAsync();
 
 // Can use this function below OR use Expo's Push Notification Tool from: https://expo.dev/notifications
 async function sendPushNotification(expoPushToken) {
