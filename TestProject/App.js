@@ -6,30 +6,25 @@ import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 
 
-//Shane: Function to save values to the secure store API
-async function save(key, value) {
-  await SecureStore.setItemAsync(key, value);
-}
+// //Shane: Function to save values to the secure store API
+// async function save(key, value) {
+//   await SecureStore.setItemAsync(key, value);
+// }
 
-//Shane: function to find values from a given key
-const getValueFor = async (key) => {
-  try {
-    const result = await SecureStore.getItemAsync(key);
-    console.log(result);
-    alert(key + ": " + result);
-    return result || '';
-  }
-  catch(error) {
-    //Could not obtain value
-    alert('No values stored under that key.');
-    return '';
-  }
-}
+// //Shane: function to find values from a given key
+// async function getValueFor(key) {
+//   let result = await SecureStore.getItemAsync(key);
+//   if (result) {
+//     return result;
+//   } else {
+//     alert('No values stored under that key.');
+//   }
+// }
 
 //Shane: Function to  1. Convert time to 24 Hour format and split to hours and minutes,
 //2. Set the scheduled time to desired time using the converted string
 //3. Use the scheduleNotification function to schedule the notification at that desired time
-async function scheduleNotificationAtTime(timeString) {
+async function scheduleNotificationAtTime(timeString, timeNum) {
   //Convert time to hours (24 hour format), and minutes (Hoping time is in format like 7:00 pm or 5:35 am)
   const [time, period] = timeString.toLowerCase().split(' ');
 
@@ -43,33 +38,46 @@ async function scheduleNotificationAtTime(timeString) {
     hours = 0;
   }
 
-  //Get the current date stamp
-  const now = new Date(); 
-  //Set the new date/time, adding the specified time
-  const scheduledTime = new Date(
-    now.getFullYear(), //set year
-    now.getMonth(), //set month
-    now.getDate(), // set day
-    hours, // set hours in 24 hr format
-    minutes,  // set minutes
-    0   // set seconds
-  );
-
-  //Shane: A constant to hold the desired date and the repeat options for the scheduleNotificationAsync function
-  const schedulingOptions = {
-  //Sets time to the requested time, and sets the repeat to daily
-  time: scheduledTime,
-  repeat: 'day',
-  };
-
   //Schedule the notification using the desired time
+  if(timeNum === 1){
   Notifications.scheduleNotificationAsync({
     content: {
-      title: "On Schedule!",
-      body: '',
+      title: "Morning Survey",
+      body: 'Time to take your morning survey!',
     },
-    trigger: schedulingOptions,
+    trigger: {
+      hour: hours,
+      minute: minutes,
+      repeats: true,
+    },
   });
+}
+else if(timeNum === 2){
+  Notifications.scheduleNotificationAsync({
+    content: {
+      title: "Afternoon Survey",
+      body: 'Time to take your afternoon survey!',
+    },
+    trigger: {
+      hour: hours,
+      minute: minutes,
+      repeats: true,
+    },
+  });
+}
+else{
+  Notifications.scheduleNotificationAsync({
+    content: {
+      title: "Evening Survey",
+      body: 'Time to take your evening survey!',
+    },
+    trigger: {
+      hour: hours,
+      minute: minutes,
+      repeats: true,
+    },
+  });
+}
   console.log('Notification Scheduled')
 }
 
@@ -82,48 +90,10 @@ notification as an arugment.
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
-    shouldPlaySound: false,
+    shouldPlaySound: true,
     shouldSetBadge: false,
   }),
 });
-
-
-/*Noah Note: This is the function I found that is closest to what we are likely looking for. It sends a notification after x seconds
-and can be repeated 
-*/
-Notifications.scheduleNotificationAsync({
-  content: {
-    title: "Testing... It Works!!",
-    body: 'Good Job',
-  },
-  trigger: { seconds: 6, repeats: false },
-});
-
-Notifications.dismissAllNotificationsAsync();
-
-// Can use this function below OR use Expo's Push Notification Tool from: https://expo.dev/notifications
-async function sendPushNotification(expoPushToken) {
-  //Noah Note: This constant variable contains the notification's title and description, along with a specified sound.
-  const message = {
-    to: expoPushToken,
-    sound: 'default',
-    title: 'Original Title',
-    body: 'And here is the body!',
-    data: { someData: 'goes here' },
-  };
-
-  /*Noah Note: It is unlikely we will ever need to edit this part, but take note that our notification message from above is being
-  stringified at the end of it. */
-  await fetch('https://exp.host/--/api/v2/push/send', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Accept-encoding': 'gzip, deflate',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(message),
-  });
-}
 
 /*Noah Note: This function is important as it is required to gain notification permissions fron the user's device. This function is how
 our mobile devices know to show us a pop-up saying "Allow Notifications from this app?"
@@ -199,20 +169,12 @@ export default function App() {
     };
   }, []);
 
+  const [text, setText] = useState('');
+  const [text2, setText2] = useState('');
+  const [text3, setText3] = useState('');
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
-      <Text>Your expo push token: {expoPushToken}</Text>
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Title: {notification && notification.request.content.title} </Text>
-        <Text>Body: {notification && notification.request.content.body}</Text>
-        <Text>Data: {notification && JSON.stringify(notification.request.content.data)}</Text>
-      </View>
-      <Button
-        title="Press to Send Notification Now"
-        onPress={async () => {
-          await sendPushNotification(expoPushToken);
-        }}
-      />
+    <View style={{ flex: 0.7, alignItems: 'center', justifyContent: 'space-around' }}>
       
       {/* Shane's Code for Time Inputs */}
       {/* Has three inputs for user to put in strings, each one is connected to each value */}
@@ -220,66 +182,57 @@ export default function App() {
       <TextInput
         placeholder= "Time 1"
         style={styles.input}
-        onChangeText={text => onChangeValue1(text)}
-        value={value1}
-      />
-      {/* <TextInput
-        placeholder= "Time 2"        
+        onChangeText={newText => setText(newText)}
+        defaultValue = {text}
+        />
+        <TextInput
+        placeholder= "Time 2"
         style={styles.input}
-        onChangeText={text => onChangeValue2(text)}
-        value={value2}
+        onChangeText={newText => setText2(newText)}
+        defaultValue = {text2}
       />
       <TextInput
         placeholder= "Time 3"
         style={styles.input}
-        onChangeText={text => onChangeValue3(text)}
-        value={value3}
-      /> */}
-      
-      {/* A submit button to save each value to its respective key */}
-      <Button
-        style={styles.button}
-        title="Submit Times"
-        onPress={() => {
-          if(value1 === ''){
-            alert('Please enter a value');
-          }
-          else {
-            save(key1, value1);
-            onChangeValue1('');
-          }
-          // save(key2, value2);
-          // onChangeValue2('');
-          // save(key3, value3);
-          // onChangeValue3('');
-        }}
-      />
-
-      {/* A button to check the time values and to test if they are saved after an app reload */}
-      <Button
-        style={styles.button}
-        title="Check Times"
-        onPress={() => {
-          // getValueFor(key3);
-          // getValueFor(key2);
-          let val = getValueFor('T1');
-          //alert("Your Times Are: \n" + val);
-          // alert("Your Times Are: \n" + getValueFor(key1) + "\n" + getValueFor(key2) + "\n" + getValueFor(key3));
-        }}
+        onChangeText={newText => setText3(newText)}
+        defaultValue = {text3}
       />
 
       {/* A button to schedule notifications at the saved times */}
-      {/* <Button
+      { <Button
         style={styles.button}
         title="Schedule Times"
         onPress={() => {
-          // scheduleNotificationAtTime(getValueFor(key3));
-          // scheduleNotificationAtTime(getValueFor(key2));
-          let time = getValueFor(key1);
-          console.log(time);
-          //scheduleNotificationAtTime(time);
+          //Noah: Use this function to remove all current notifications in the event that they are changing their times.
+          Notifications.cancelAllScheduledNotificationsAsync();
+          scheduleNotificationAtTime(text, 1);
+          scheduleNotificationAtTime(text2, 2);
+          scheduleNotificationAtTime(text3, 3);
+          Notifications.scheduleNotificationAsync({
+            content: {
+              title: "Notifications Started",
+              body: 'You will receive daily notifications at the given times until you press "Clear Notifications"',
+            },
+            trigger: {seconds: 1},
+          });
         }}
-      /> */}
+      /> }
+
+      { <Button
+        style={styles.button}
+        title="Clear Notifications"
+        onPress={() => {
+          //Noah: Use this function to remove all current notifications in the event that they are changing their times.
+          Notifications.cancelAllScheduledNotificationsAsync();
+          Notifications.scheduleNotificationAsync({
+            content: {
+              title: "Notifications Cleared",
+              body: 'Remember to press "Schedule Times" to start them again',
+            },
+            trigger: {seconds: 1},
+          });
+        }}
+      /> }
     </View>
   );
 }
