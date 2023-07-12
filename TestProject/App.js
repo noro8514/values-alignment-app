@@ -174,7 +174,7 @@ export default function App() {
   const [text3, setText3] = useState('');
 
   return (
-    <View style={{ flex: 0.7, alignItems: 'center', justifyContent: 'space-around' }}>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
       
       {/* Shane's Code for Time Inputs */}
       {/* Has three inputs for user to put in strings, each one is connected to each value */}
