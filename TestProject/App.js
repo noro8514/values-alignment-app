@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Platform } from 'react-native';
+import { A } from '@expo/html-elements';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
+import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
 import React from 'react';
 
@@ -174,7 +176,7 @@ export default function App() {
   const [text3, setText3] = useState('');
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
+    <View style={styles.container}>
       
       {/* Shane's Code for Time Inputs */}
       {/* Has three inputs for user to put in strings, each one is connected to each value */}
@@ -233,11 +235,42 @@ export default function App() {
           });
         }}
       /> }
+
+     {/* Survey buttons, currently link to dummy google forms */}
+    <View style={styles.surveyContainer}>
+      { <Button
+          style={styles.button}
+          title="Survey 1"
+          onPress={() => {
+            Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
+          }}
+        /> }
+      { <Button
+          style={styles.button}
+          title="Survey 2"
+          onPress={() => {
+            Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
+          }}
+        /> }
+      { <Button
+          style={styles.button}
+          title="Survey 3"
+          onPress={() => {
+            Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
+          }}
+        /> }
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems:'center',
+    justifyContent: 'space-around',
+  },
   input: {
     height: 40,
     width: 200,
@@ -247,13 +280,20 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     textAlign: 'center',
   },
+  surveyContainer: {
+    flex: 1 / 4,
+    width: '90%',
+    flexDirection: 'row',
+    backgroundColor: '#ccc',
+    alignItems:'center',
+    justifyContent: 'space-around',
+  },
   button: {
     height: 40,
-    width: 200,
+    width: '60%',
     margin: 10,
-    borderStyle: 'solid',
-    borderWidth: 2,
-    borderRadius: 10,
+    padding: 20,
+    borderRadius: 50,
     textAlign: 'center',
   }
 });
