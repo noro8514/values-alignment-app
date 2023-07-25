@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Platform } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Button, Platform } from 'react-native';
 import { A } from '@expo/html-elements';
 import * as Device from 'expo-device';
+import Checkbox from 'expo-checkbox';
+import { DataTable } from 'react-native-paper';
 import * as Notifications from 'expo-notifications';
 import * as Linking from 'expo-linking';
 import * as SecureStore from 'expo-secure-store';
@@ -144,6 +146,37 @@ export default function App() {
   const notificationListener = useRef();
   const responseListener = useRef();
 
+  const [isChecked, setChecked] = useState(false);
+  const S1button = ({ onPress, title }) => (
+    <TouchableOpacity 
+      onPress={() => {
+        Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
+      }} 
+      style={styles.appButtonContainer}
+    >
+      <Text style={styles.appButtonText}>{title}</Text>
+    </TouchableOpacity>
+  );
+  const S2button = ({ onPress, title }) => (
+    <TouchableOpacity 
+      onPress={() => {
+        Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
+      }} 
+      style={styles.appButtonContainer}
+    >
+      <Text style={styles.appButtonText}>{title}</Text>
+    </TouchableOpacity>
+  );
+  const S3button = ({ onPress, title }) => (
+    <TouchableOpacity 
+      onPress={() => {
+        Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
+      }} 
+      style={styles.appButtonContainer}
+    >
+      <Text style={styles.appButtonText}>{title}</Text>
+    </TouchableOpacity>
+  );
   //For Secure Store
   //Initialize the keys as constant strings, and the values as a changeable string. 
   //Connected to the input through 'onChangeValue'
@@ -236,30 +269,116 @@ export default function App() {
         }}
       /> }
 
+      <DataTable>
+        <DataTable.Header>
+          <DataTable.Title>
+            Date
+          </DataTable.Title>
+          <DataTable.Title>
+            <S1button title="Survey 1" size="sm" backgroundColor="#007bff"/>
+          </DataTable.Title>
+          <DataTable.Title>
+            <S2button title="Survey 2" size="sm" backgroundColor="#007bff"/>
+          </DataTable.Title>
+          <DataTable.Title>
+            <S3button title="Survey 3" size="sm" backgroundColor="#007bff"/>
+          </DataTable.Title>
+        </DataTable.Header>
+
+        <DataTable.Row>
+          <DataTable.Title>Monday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Title>Tuesday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Title>Wednesday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Title>Thursday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Title>Friday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Title>Saturday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+
+        <DataTable.Row>
+          <DataTable.Title>Sunday</DataTable.Title>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+          <DataTable.Cell>
+            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+          </DataTable.Cell>
+        </DataTable.Row>
+      </DataTable>
+
      {/* Survey buttons, currently link to dummy google forms */}
-    <View style={styles.surveyContainer}>
-      { <Button
-          style={styles.button}
-          title="Survey 1"
-          onPress={() => {
-            Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
-          }}
-        /> }
-      { <Button
-          style={styles.button}
-          title="Survey 2"
-          onPress={() => {
-            Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
-          }}
-        /> }
-      { <Button
-          style={styles.button}
-          title="Survey 3"
-          onPress={() => {
-            Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
-          }}
-        /> }
-      </View>
+    
     </View>
   );
 }
@@ -288,12 +407,10 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent: 'space-around',
   },
-  button: {
-    height: 40,
-    width: '60%',
-    margin: 10,
-    padding: 20,
-    borderRadius: 50,
+  appButtonContainer: {
+    padding: 10,
+    backgroundColor: '#bbd',
+    borderRadius: 20,
     textAlign: 'center',
   }
 });
