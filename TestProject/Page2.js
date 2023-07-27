@@ -44,7 +44,7 @@ const FeedbackScreen = ({navigation, route}) => {
         </TouchableOpacity>
       );
     
-
+      const [isChecked, setChecked] = useState(false);
 
     return (
       <View style={styles.surveyContainer}>
@@ -198,14 +198,6 @@ const FeedbackScreen = ({navigation, route}) => {
       borderWidth: 2,
       borderRadius: 10,
       textAlign: 'center',
-    },
-    surveyContainer: {
-      flex: 1 / 4,
-      width: '90%',
-      flexDirection: 'row',
-      backgroundColor: '#ccc',
-      alignItems:'center',
-      justifyContent: 'space-around',
     },
     button: {
       height: 40,
