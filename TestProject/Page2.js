@@ -45,6 +45,26 @@ const FeedbackScreen = ({navigation, route}) => {
       );
     
       const [isChecked, setChecked] = useState(false);
+      const [isChecked2, setChecked2] = useState(false);
+      const [isChecked3, setChecked3] = useState(false);
+      const [isChecked4, setChecked4] = useState(false);
+      const [isChecked5, setChecked5] = useState(false);
+      const [isChecked6, setChecked6] = useState(false);
+      const [isChecked7, setChecked7] = useState(false);
+      const [isChecked8, setChecked8] = useState(false);
+      const [isChecked9, setChecked9] = useState(false);
+      const [isChecked10, setChecked10] = useState(false);
+      const [isChecked11, setChecked11] = useState(false);
+      const [isChecked12, setChecked12] = useState(false);
+      const [isChecked13, setChecked13] = useState(false);
+      const [isChecked14, setChecked14] = useState(false);
+      const [isChecked15, setChecked15] = useState(false);
+      const [isChecked16, setChecked16] = useState(false);
+      const [isChecked17, setChecked17] = useState(false);
+      const [isChecked18, setChecked18] = useState(false);
+      const [isChecked19, setChecked19] = useState(false);
+      const [isChecked20, setChecked20] = useState(false);
+      const [isChecked21, setChecked21] = useState(false);
 
     return (
       <View style={styles.surveyContainer}>
@@ -52,9 +72,7 @@ const FeedbackScreen = ({navigation, route}) => {
         {/* Nazhone: Put your checkbox code here */}
         <DataTable>
         <DataTable.Header>
-          <DataTable.Title>
-            Date
-          </DataTable.Title>
+          
           <DataTable.Title>
             <S1button title="Survey 1" size="sm" backgroundColor="#007bff"/>
           </DataTable.Title>
@@ -66,17 +84,16 @@ const FeedbackScreen = ({navigation, route}) => {
           </DataTable.Title>
         </DataTable.Header>
 
-
         <DataTable.Row>
           <DataTable.Title>Monday</DataTable.Title>
           <DataTable.Cell>
             <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked3} onValueChange={setChecked3} />
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -84,13 +101,13 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Row>
           <DataTable.Title>Tuesday</DataTable.Title>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked4} onValueChange={setChecked4} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked5} onValueChange={setChecked5} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked6} onValueChange={setChecked6} />
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -98,13 +115,13 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Row>
           <DataTable.Title>Wednesday</DataTable.Title>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked7} onValueChange={setChecked7} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked8} onValueChange={setChecked8} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked9} onValueChange={setChecked9} />
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -112,13 +129,13 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Row>
           <DataTable.Title>Thursday</DataTable.Title>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked10} onValueChange={setChecked10} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked11} onValueChange={setChecked11} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked12} onValueChange={setChecked12} />
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -126,13 +143,13 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Row>
           <DataTable.Title>Friday</DataTable.Title>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked13} onValueChange={setChecked13} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked14} onValueChange={setChecked14} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked15} onValueChange={setChecked15} />
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -140,13 +157,13 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Row>
           <DataTable.Title>Saturday</DataTable.Title>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked16} onValueChange={setChecked16} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked17} onValueChange={setChecked17} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked18} onValueChange={setChecked18} />
           </DataTable.Cell>
         </DataTable.Row>
 
@@ -154,13 +171,13 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Row>
           <DataTable.Title>Sunday</DataTable.Title>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked19} onValueChange={setChecked19} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked20} onValueChange={setChecked20} />
           </DataTable.Cell>
           <DataTable.Cell>
-            <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked} />
+            <Checkbox style={styles.checkbox} value={isChecked21} onValueChange={setChecked21} />
           </DataTable.Cell>
         </DataTable.Row>
       </DataTable>
@@ -171,7 +188,7 @@ const FeedbackScreen = ({navigation, route}) => {
 
   const styles = StyleSheet.create({
     surveyContainer: {
-        flex: 1 / 4,
+        flex: 3/4,
         width: '90%',
         flexDirection: 'row',
         backgroundColor: '#ccc',
@@ -183,6 +200,8 @@ const FeedbackScreen = ({navigation, route}) => {
         backgroundColor: '#bbd',
         borderRadius: 20,
         textAlign: 'center',
+        height:35,
+        
       },    
     container: {
       flex: 1,
@@ -191,7 +210,7 @@ const FeedbackScreen = ({navigation, route}) => {
       justifyContent: 'space-around',
     },
     input: {
-      height: 40,
+      height: 50,
       width: 200,
       margin: 10,
       borderStyle: 'solid',
@@ -205,6 +224,10 @@ const FeedbackScreen = ({navigation, route}) => {
       margin: 10,
       padding: 20,
       borderRadius: 50,
+      textAlign: 'center',
+    },
+    appButtonText:{
+      fontSize:12,
       textAlign: 'center',
     }
   });
