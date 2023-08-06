@@ -11,8 +11,6 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DropDownPicker from 'react-native-dropdown-picker';
-import { DataTable } from 'react-native-paper';
-import Checkbox from 'expo-checkbox';
 
 import HomeScreen from './Page1';
 import FeedbackScreen from './Page2';

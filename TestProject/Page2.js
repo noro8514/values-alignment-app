@@ -13,37 +13,6 @@ import Checkbox from 'expo-checkbox';
 
 //Feedback and Survey Screen
 const FeedbackScreen = ({navigation, route}) => {
-    const S1button = ({ onPress, title }) => (
-        <TouchableOpacity
-          onPress={() => {
-            Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
-          }}
-          style={styles.appButtonContainer}
-        >
-          <Text style={styles.appButtonText}>{title}</Text>
-        </TouchableOpacity>
-    );
-    const S2button = ({ onPress, title }) => (
-        <TouchableOpacity
-          onPress={() => {
-            Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
-          }}
-          style={styles.appButtonContainer}
-        >
-          <Text style={styles.appButtonText}>{title}</Text>
-        </TouchableOpacity>
-      );
-      const S3button = ({ onPress, title }) => (
-        <TouchableOpacity
-          onPress={() => {
-            Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
-          }}
-          style={styles.appButtonContainer}
-        >
-          <Text style={styles.appButtonText}>{title}</Text>
-        </TouchableOpacity>
-      );
-    
       const [isChecked, setChecked] = useState(false);
       const [isChecked2, setChecked2] = useState(false);
       const [isChecked3, setChecked3] = useState(false);
@@ -74,13 +43,31 @@ const FeedbackScreen = ({navigation, route}) => {
         <DataTable.Header>
           
           <DataTable.Title>
-            <S1button title="Survey 1" size="sm" backgroundColor="#007bff"/>
+            { <Button
+              style={styles.button}
+              title="Survey 1"
+              onPress={() => {
+                Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
+              }}
+            /> }
           </DataTable.Title>
           <DataTable.Title>
-            <S2button title="Survey 2" size="sm" backgroundColor="#007bff"/>
+            { <Button
+              style={styles.button}
+              title="Survey 1"
+              onPress={() => {
+                Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
+              }}
+            /> }
           </DataTable.Title>
           <DataTable.Title>
-            <S3button title="Survey 3" size="sm" backgroundColor="#007bff"/>
+            { <Button 
+              style={styles.button}
+              title="Survey 1"
+              onPress={() => {
+                Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
+              }}
+            /> }
           </DataTable.Title>
         </DataTable.Header>
 
