@@ -36,7 +36,7 @@ const FeedbackScreen = ({navigation, route}) => {
       const [isChecked21, setChecked21] = useState(false);
 
     return (
-      <View style={styles.surveyContainer}>
+      <View style={styles.container}>
 
         {/* Nazhone: Put your checkbox code here */}
         <DataTable>

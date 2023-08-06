@@ -392,6 +392,13 @@ const HomeScreen = ({navigation, route}) => {
             navigation.navigate('Surveys')
           }
         /> }
+        { <Button
+          style={styles.button}
+          title="Go to Calendar"
+          onPress={() =>
+            navigation.navigate('Calendar')
+          }
+        /> }
       </View>
     );
   };

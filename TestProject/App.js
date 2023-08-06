@@ -14,6 +14,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 import HomeScreen from './Page1';
 import FeedbackScreen from './Page2';
+import CalendarScreen from './Page3';
 //import RootNav from './RootNavigator';
 
 
@@ -41,6 +42,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Time Select" component={HomeScreen} options={{title: 'Time Select'}}/>
         <Stack.Screen name="Surveys" component={FeedbackScreen} options={{title: 'Surveys'}}/>
+        <Stack.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar'}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
