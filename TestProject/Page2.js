@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity,Platform } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Platform } from 'react-native';
 import { A } from '@expo/html-elements';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
@@ -37,40 +37,39 @@ const FeedbackScreen = ({navigation, route}) => {
 
     return (
       <View style={styles.container}>
-
-        {/* Nazhone: Put your checkbox code here */}
-        <DataTable>
-        <DataTable.Header>
-          
-          <DataTable.Title>
-            { <Button
-              style={styles.button}
+        <View style={styles.buttonContainer}>
+            <Button
+              style={styles.surveyButton}
               title="Survey 1"
+              color='blue'
               onPress={() => {
                 Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
               }}
-            /> }
-          </DataTable.Title>
-          <DataTable.Title>
-            { <Button
-              style={styles.button}
-              title="Survey 1"
+            />
+
+            <Button
+              style={styles.surveyButton}
+              title = "Survey 2"
+              color='blue'
+              textDecorationLine='underline'
               onPress={() => {
                 Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
               }}
-            /> }
-          </DataTable.Title>
-          <DataTable.Title>
-            { <Button 
-              style={styles.button}
-              title="Survey 1"
+            />
+            <Button
+              style={styles.surveyButton}
+              title="Survey 3"
+              // Text='Survey 3'
+              color='blue'
               onPress={() => {
                 Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
               }}
-            /> }
-          </DataTable.Title>
-        </DataTable.Header>
+            />
+        </View>
 
+        {/* Nazhone: Put your checkbox code here */}
+        <DataTable>
+      
         <DataTable.Row>
           <DataTable.Title>Monday</DataTable.Title>
           <DataTable.Cell>
@@ -174,49 +173,83 @@ const FeedbackScreen = ({navigation, route}) => {
   };
 
   const styles = StyleSheet.create({
-    surveyContainer: {
-        flex: 3/4,
-        width: '90%',
-        flexDirection: 'row',
-        backgroundColor: '#ccc',
-        alignItems:'center',
-        justifyContent: 'space-around',
-      },
-      appButtonContainer: {
-        padding: 10,
-        backgroundColor: '#bbd',
-        borderRadius: 20,
-        textAlign: 'center',
-        height:35,
-        
-      },    
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
+    buttonContainer: { //container for the survey buttons
+      margin: 20,
+      backgroundColor: 'none',
+      borderWidth: 1,
+      borderRadius: 2,
+      borderBottomColor: 'red',
+      borderRightColor: 'white',
+      borderLeftColor: 'white',
+      // textAlign: 'center',
+      height:40,
+      
+      // position:'relative'
+      // flex: 1,
+      width: '100%',
+      flexDirection: 'row',
+      backgroundColor: 'white',
+      alignItems:'center',
+      justifyContent: 'space-evenly',
+      left: 0,
+    },    
+    container: { // container for datatable
+      flex: 0,
+      backgroundColor: 'white',
       alignItems:'center',
       justifyContent: 'space-around',
+      position: 'relative',
+      top: 0,
+      },
+
+    checkbox: { // This is the individual checkboxes
+      backgroundColor: 'white',
+      borderColor: 'black',
     },
-    input: {
-      height: 50,
-      width: 200,
-      margin: 10,
-      borderStyle: 'solid',
-      borderWidth: 2,
-      borderRadius: 10,
-      textAlign: 'center',
-    },
-    button: {
-      height: 40,
-      width: '60%',
-      margin: 10,
-      padding: 20,
-      borderRadius: 50,
-      textAlign: 'center',
-    },
-    appButtonText:{
-      fontSize:12,
-      textAlign: 'center',
-    }
+
   });
 
+//   surveyContainer: {
+//     flex: 3/4,
+//     width: '90%',
+//     flexDirection: 'row',
+//     backgroundColor: '#ccc',
+//     alignItems:'center',
+//     justifyContent: 'space-around',
+//   },
+//   appButtonContainer: {
+//     padding: 10,
+//     backgroundColor: '#bbd',
+//     borderRadius: 20,
+//     textAlign: 'center',
+//     height:35,
+//   },    
+// container: {
+//   flex: 0,
+//   backgroundColor: '#fff',
+//   alignItems:'center',
+//   justifyContent: 'space-around',
+//   },
+// input: {
+//   height: 50,
+//   width: 200,
+//   margin: 10,
+//   borderStyle: 'solid',
+//   borderWidth: 2,
+//   borderRadius: 10,
+//   textAlign: 'center',
+// },
+// button: {
+//   height: 20,
+//   width: '60%',
+//   margin: 10,
+//   padding: 20,
+//   borderRadius: 50,
+//   textAlign: 'center',
+// },
+// appButtonText:{
+//   fontSize:12,
+//   textAlign: 'center',
+// }
+// });
 export default FeedbackScreen

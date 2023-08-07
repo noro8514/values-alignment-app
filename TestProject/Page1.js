@@ -217,7 +217,7 @@ const HomeScreen = ({navigation, route}) => {
         {/* Has three inputs for user to put in strings, each one is connected to each value */}
         {/* Noah Redid To Use DropDown Inputs */}
         <Text>Enter Times You Would Like to Recieve Notifications:</Text>
-        <Text>Morning Survey</Text>
+        <Text style={styles.threeSurveys}>Morning Survey</Text>
         <View style={styles.morningDropdowns}>
         {/*Dropdown menus for time 1*/}
         <DropDownPicker
@@ -261,7 +261,7 @@ const HomeScreen = ({navigation, route}) => {
         }
         />
         </View>
-        <Text>Afternoon Survey</Text>
+        <Text style={styles.threeSurveys}>Afternoon Survey</Text>
         <View style={styles.afternoonDropdowns}>
         {/*Dropdown menus for time 2*/}
         <DropDownPicker
@@ -304,7 +304,7 @@ const HomeScreen = ({navigation, route}) => {
         }
         />
         </View>
-        <Text>Evening Survey</Text>
+        <Text style={styles.threeSurveys}>Evening Survey</Text>
         <View style={styles.eveningDropdowns}>
         {/*Dropdown menus for time 3*/}
         <DropDownPicker
@@ -370,9 +370,26 @@ const HomeScreen = ({navigation, route}) => {
           }}
         /> }
   
+        
+        { <Button
+          style={styles.button}
+          title="Go to Surveys"
+        
+          onPress={() =>
+            navigation.navigate('Surveys')
+          }
+        /> }
+        { <Button
+          style={styles.button}
+          title="Go to Calendar"
+          onPress={() =>
+            navigation.navigate('Calendar')
+          }
+        /> }
         { <Button
           style={styles.button}
           title="Clear Notifications"
+          color='red'
           onPress={() => {
             //Noah: Use this function to remove all current notifications in the event that they are changing their times.
             Notifications.cancelAllScheduledNotificationsAsync();
@@ -385,32 +402,18 @@ const HomeScreen = ({navigation, route}) => {
             });
           }}
         /> }
-        { <Button
-          style={styles.button}
-          title="Go to Surveys"
-          onPress={() =>
-            navigation.navigate('Surveys')
-          }
-        /> }
-        { <Button
-          style={styles.button}
-          title="Go to Calendar"
-          onPress={() =>
-            navigation.navigate('Calendar')
-          }
-        /> }
       </View>
     );
   };
 
   const styles = StyleSheet.create({
-    container: {
+    container: { // container for whole page except title
       flex: 1,
       backgroundColor: '#fff',
       alignItems:'center',
       justifyContent: 'space-around',
     },
-    input: {
+    input: {// this doesn't affect anything
       height: 40,
       width: 200,
       margin: 10,
@@ -419,7 +422,7 @@ const HomeScreen = ({navigation, route}) => {
       borderRadius: 10,
       textAlign: 'center',
     },
-    surveyContainer: {
+    surveyContainer: { // doesn't change anything
       flex: 1 / 4,
       width: '90%',
       flexDirection: 'row',
@@ -427,7 +430,7 @@ const HomeScreen = ({navigation, route}) => {
       alignItems:'center',
       justifyContent: 'space-around',
     },
-    button: {
+    button: { // doesn't change anything
       height: 40,
       width: '60%',
       margin: 10,
@@ -435,7 +438,7 @@ const HomeScreen = ({navigation, route}) => {
       borderRadius: 50,
       textAlign: 'center',
     },
-    morningDropdowns:{
+    morningDropdowns:{ // changes the morning dropdown boxes
         justifyContent:'space-evenly',
         flexDirection:'row',
         flex:1/10,
@@ -444,7 +447,7 @@ const HomeScreen = ({navigation, route}) => {
         paddingTop:5,
         zIndex:3,
       },
-      afternoonDropdowns:{
+      afternoonDropdowns:{ // changes the afternoon dropdown boxes
         justifyContent:'space-evenly',
         flexDirection:'row',
         flex:1/10,
@@ -453,7 +456,7 @@ const HomeScreen = ({navigation, route}) => {
         paddingTop:5,
         zIndex:2,
       },
-      eveningDropdowns:{
+      eveningDropdowns:{ // changes the evening dropdown boxes
         justifyContent:'space-evenly',
         flexDirection:'row',
         flex:1/10,
@@ -461,7 +464,10 @@ const HomeScreen = ({navigation, route}) => {
         padding:20,
         paddingTop:5,
         zIndex:1,
-      }    
+      },
+      threeSurveys:{ // this affects the titles of the three survey dropdowns (morning survey, afternoon survey, evening survey)
+        fontWeight: 'bold',
+      }
   });
 
   export default HomeScreen

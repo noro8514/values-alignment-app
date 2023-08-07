@@ -40,9 +40,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Time Select" component={HomeScreen} options={{title: 'Time Select'}}/>
-        <Stack.Screen name="Surveys" component={FeedbackScreen} options={{title: 'Surveys'}}/>
-        <Stack.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar'}}/>
+        <Stack.Screen name="Time Select" component={HomeScreen} options={{title: 'Time Select',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+        <Stack.Screen name="Surveys" component={FeedbackScreen} options={{title: 'Surveys',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+        <Stack.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
