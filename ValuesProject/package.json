@@ -1,8 +1,26 @@
 {
+  "name": "values-app",
+  "version": "1.0.0",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
   "dependencies": {
-    "@benjeau/react-native-draw": "^0.8.3",
-    "expo-image-picker": "^14.3.2",
-    "react-native-calendar-picker": "^6.1.5",
-    "react-native-webview": "^13.3.0"
-  }
+    "@react-navigation/bottom-tabs": "^6.5.8",
+    "@react-navigation/material-top-tabs": "^6.6.3",
+    "@react-navigation/native": "^6.1.7",
+    "@react-navigation/native-stack": "^6.9.13",
+    "@react-navigation/stack": "^6.3.17",
+    "expo": "~49.0.5",
+    "expo-status-bar": "~1.6.0",
+    "react": "18.2.0",
+    "react-native": "0.72.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
+  },
+  "private": true
 }
