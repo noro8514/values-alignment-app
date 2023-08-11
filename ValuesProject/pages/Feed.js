@@ -1,34 +1,33 @@
 //Imports
 import React from 'react';
 import { StyleSheet, Text, Image, Button, View } from 'react-native';
+import Experience from '../components/Experience-component'
+import Value from '../components/Value-component'
 
 //Functions
-const Memory = () =>{
-    return(
-        <View>
-            <Text>Lake View</Text>
-            { <Button
-                style={styles.button}
-                title="+"
-                onPress={() =>
-                    navigation.navigate('Experience')
-                }
-            /> }
-            <Image
-                source={require('../assets/lake-view.png')}
-            />
-            <Text>Friendship</Text><Text>Love</Text><Text>Generosity</Text>
-        </View>
-    );
-};
-
 
 //Feed Screen
 const FeedScreen = ({navigation, route}) => {
     return (
         <View style={styles.container}>
             <Text>Feed Screen</Text>
-            <Memory />
+            <Experience 
+                expData={{title:'Lake View', imageName:require('../assets/lake-view.png')}}
+                valData={[
+                    {
+                        id: 'aaa',
+                        title: 'Friendship'
+                    },
+                    {
+                        id: 'aab',
+                        title: 'Generosity'
+                    },
+                    {
+                        id: 'aac',
+                        title: 'Love'
+                    },
+                ]}
+            />
         </View>
     );
 }
