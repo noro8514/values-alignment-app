@@ -35,6 +35,11 @@ const CalendarScreen = () => {
   };
 
   const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#FFFFFF',
+      marginTop: 20,
+    },
   });
 
 export default CalendarScreen

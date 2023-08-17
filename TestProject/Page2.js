@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Platform } from 'react-native';
-import { A } from '@expo/html-elements';
+import { StyleSheet, Text, TextInput, View, Button, TouchableOpacity, Platform, Pressable } from 'react-native';
+import { A, S } from '@expo/html-elements';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import * as Linking from 'expo-linking';
@@ -13,6 +13,7 @@ import Checkbox from 'expo-checkbox';
 
 //Feedback and Survey Screen
 const FeedbackScreen = ({navigation, route}) => {
+    //Const to set the state of the checkboxes
       const [isChecked, setChecked] = useState(false);
       const [isChecked2, setChecked2] = useState(false);
       const [isChecked3, setChecked3] = useState(false);
@@ -35,36 +36,71 @@ const FeedbackScreen = ({navigation, route}) => {
       const [isChecked20, setChecked20] = useState(false);
       const [isChecked21, setChecked21] = useState(false);
 
+      //Const to access the survey checks booleans from the previous page if needed
+      const {Survey1, Survey2, Survey3} = route.params || {};
+
+      //Const to set survey links from Secure Storage
+      const [Survey1Link, setSurvey1Link] = useState('');
+      const [Survey2Link, setSurvey2Link] = useState('');
+      const [Survey3Link, setSurvey3Link] = useState('');
+      
+      //function to access the survey links from secure storage and save to useable variables
+      useEffect(() => {
+        const getSavedLinks = async () => {
+          const RetrievedLink1 = await SecureStore.getItemAsync('Survey1Link');
+          setSurvey1Link(RetrievedLink1);
+
+          const RetrievedLink2 = await SecureStore.getItemAsync('Survey2Link');
+          setSurvey2Link(RetrievedLink2);
+
+          const RetrievedLink3 = await SecureStore.getItemAsync('Survey3Link');
+          setSurvey3Link(RetrievedLink3);
+        };
+    
+        getSavedLinks();
+      }, []);
+
+    //Return Screen
     return (
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
-            <Button
-              style={styles.surveyButton}
-              title="Survey 1"
-              color='blue'
+            <Pressable
+              style={({pressed}) => [
+                {backgroundColor: pressed ? 'lightgrey' : 'rgba(219,218,140,0.7)'},
+                styles.SurveyButton,
+                ]}
               onPress={() => {
-                Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
-              }}
-            />
+                //Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
+                Linking.openURL("'" + Survey1Link + "'")
+                console.log(Survey1Link);
+              }}>
+              <Text style={{fontSize: 17, color: 'black', fontWeight: '500'}}>Survey 1</Text>
+            </Pressable>
 
-            <Button
-              style={styles.surveyButton}
-              title = "Survey 2"
-              color='blue'
-              textDecorationLine='underline'
+            <Pressable
+              style={({pressed}) => [
+                {backgroundColor: pressed ? 'lightgrey' : 'rgba(6,161,236,0.6)'},
+                styles.SurveyButton,
+                ]}
               onPress={() => {
-                Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
-              }}
-            />
-            <Button
-              style={styles.surveyButton}
-              title="Survey 3"
-              // Text='Survey 3'
-              color='blue'
+                //Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
+                Linking.openURL("'" + Survey2Link + "'")
+                console.log(Survey2Link);
+              }}>
+              <Text style={{fontSize: 17, color: 'black', fontWeight: '500'}}>Survey 2</Text>
+            </Pressable>
+            <Pressable
+              style={({pressed}) => [
+                {backgroundColor: pressed ? 'lightgrey' : 'rgba(49,40,88,0.5)'},
+                styles.SurveyButton,
+                ]}
               onPress={() => {
-                Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
-              }}
-            />
+                //Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
+                Linking.openURL("'" + Survey3Link + "'")
+                console.log(Survey3Link);
+              }}>
+              <Text style={{fontSize: 17, color: 'black', fontWeight: '500'}}>Survey 3</Text>
+            </Pressable>
         </View>
 
         {/* Nazhone: Put your checkbox code here */}
@@ -173,27 +209,34 @@ const FeedbackScreen = ({navigation, route}) => {
   };
 
   const styles = StyleSheet.create({
+
     buttonContainer: { //container for the survey buttons
       margin: 20,
-      backgroundColor: 'none',
       borderWidth: 1,
       borderRadius: 2,
-      borderBottomColor: 'red',
-      borderRightColor: 'white',
-      borderLeftColor: 'white',
-      // textAlign: 'center',
-      height:40,
-      
-      // position:'relative'
-      // flex: 1,
+      height:50,
       width: '100%',
       flexDirection: 'row',
       backgroundColor: 'white',
       alignItems:'center',
       justifyContent: 'space-evenly',
-      left: 0,
-    },    
-    container: { // container for datatable
+      //paddingLeft: 40,
+      zIndex: 1,
+      backgroundColor: '#E2ecec',
+    },
+    SurveyButton: { //individual survey buttons
+      height: 40,
+      width: 120,
+      margin: 5,
+      borderRadius: 15,
+      textAlign: 'center',
+      zIndex: 2,
+      justifyContent: 'center',
+      paddingLeft: 28,
+    },
+
+
+    container: { // container for whole page
       flex: 0,
       backgroundColor: 'white',
       alignItems:'center',
@@ -204,7 +247,7 @@ const FeedbackScreen = ({navigation, route}) => {
 
     checkbox: { // This is the individual checkboxes
       backgroundColor: 'white',
-      borderColor: 'black',
+      borderColor: 'darkcyan',
     },
 
   });

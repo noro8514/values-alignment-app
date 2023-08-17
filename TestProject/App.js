@@ -11,39 +11,33 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DropDownPicker from 'react-native-dropdown-picker';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import HomeScreen from './Page1';
+import TimeScreen from './Page1';
 import FeedbackScreen from './Page2';
 import CalendarScreen from './Page3';
+import SettingsScreen from './Page4';
 //import RootNav from './RootNavigator';
 
 
-// //Shane: Function to save values to the secure store API
-// async function save(key, value) {
-//   await SecureStore.setItemAsync(key, value);
-// }
-
-// //Shane: function to find values from a given key
-// async function getValueFor(key) {
-//   let result = await SecureStore.getItemAsync(key);
-//   if (result) {
-//     return result;
-//   } else {
-//     alert('No values stored under that key.');
-//   }
-// }
-
-const Stack = createNativeStackNavigator();
+//const Stack = createNativeStackNavigator();
+const Tab = createMaterialTopTabNavigator();
 //Noah Note: Here is where the functionality of our app is coded. All of our notification variables and front-end layout is found here
 export default function App() {
-  
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Time Select" component={HomeScreen} options={{title: 'Time Select',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
-        <Stack.Screen name="Surveys" component={FeedbackScreen} options={{title: 'Surveys',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
-        <Stack.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
-      </Stack.Navigator>
+      <Tab.Navigator
+      screenOptions={{
+        tabBarLabelStyle: { fontSize: 12 },
+        tabBarItemStyle: { height: 160, width: 100 },
+        tabBarStyle: { height: 100, backgroundColor: 'powderblue' },
+        }}
+      >
+        <Tab.Screen name="Surveys" component={FeedbackScreen} options={{title: 'Surveys',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+        <Tab.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+        <Tab.Screen name="Time Select" component={TimeScreen} options={{title: 'Time Select',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+        <Tab.Screen name="Settings" component={SettingsScreen} options={{title: 'Survey Settings',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }

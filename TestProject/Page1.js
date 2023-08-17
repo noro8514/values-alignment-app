@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, TextInput, View, Button, Platform } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button, Platform, Pressable } from 'react-native';
 import { A } from '@expo/html-elements';
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
@@ -9,6 +9,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DropDownPicker from 'react-native-dropdown-picker';
+
 
 //Shane: Function to  1. Convert time to 24 Hour format and split to hours and minutes,
 //2. Set the scheduled time to desired time using the converted string
@@ -124,7 +125,7 @@ async function scheduleNotificationAtTime(hour,minute,day, timeNum) {
   }
 
 //First 'Home' Page with time select options
-const HomeScreen = ({navigation, route}) => {
+const TimeScreen = ({route}) => {
     //For Notifications
     //const [expoPushToken, setExpoPushToken] = useState('');
     const [notification, setNotification] = useState(false);
@@ -134,6 +135,8 @@ const HomeScreen = ({navigation, route}) => {
     const [text, setText] = useState('');
     const [text2, setText2] = useState('');
     const [text3, setText3] = useState('');
+
+    const {Survey1, Survey2, Survey3} = route.params || {};
 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
@@ -216,8 +219,12 @@ const HomeScreen = ({navigation, route}) => {
         {/* Shane's Code for Time Inputs */}
         {/* Has three inputs for user to put in strings, each one is connected to each value */}
         {/* Noah Redid To Use DropDown Inputs */}
-        <Text>Enter Times You Would Like to Recieve Notifications:</Text>
-        <Text style={styles.threeSurveys}>Morning Survey</Text>
+        <Text style={styles.title}>Enter Times You Would Like to Recieve Notifications:</Text>
+        <Text style={styles.subtitle}>Go to Settings to Configure Surveys</Text>
+
+        {Survey1 && (
+          <View style={styles.Morning}>
+            <Text style={styles.threeSurveys}>Morning Survey</Text>
         <View style={styles.morningDropdowns}>
         {/*Dropdown menus for time 1*/}
         <DropDownPicker
@@ -261,7 +268,12 @@ const HomeScreen = ({navigation, route}) => {
         }
         />
         </View>
-        <Text style={styles.threeSurveys}>Afternoon Survey</Text>
+        </View>
+        )}
+
+        {Survey2 && (
+          <View style={styles.Afternoon}>
+          <Text style={styles.threeSurveys}>Afternoon Survey</Text>
         <View style={styles.afternoonDropdowns}>
         {/*Dropdown menus for time 2*/}
         <DropDownPicker
@@ -304,7 +316,12 @@ const HomeScreen = ({navigation, route}) => {
         }
         />
         </View>
-        <Text style={styles.threeSurveys}>Evening Survey</Text>
+          </View>
+        )}
+
+        {Survey3 && (
+          <View style={styles.Evening}>
+            <Text style={styles.threeSurveys}>Evening Survey</Text>
         <View style={styles.eveningDropdowns}>
         {/*Dropdown menus for time 3*/}
         <DropDownPicker
@@ -347,13 +364,18 @@ const HomeScreen = ({navigation, route}) => {
         }
         />
         </View>
+          </View>
+        )}
+
   
 
 
         {/* A button to schedule notifications at the saved times */}
-        { <Button
-          style={styles.button}
-          title="Schedule Times"
+        { <Pressable
+          style={({pressed}) => [
+            {backgroundColor: pressed ? 'blue' : 'lightblue'},
+            styles.ScheduleButton,
+            ]}
           onPress={() => {
             //Noah: Use this function to remove all current notifications in the event that they are changing their times.
             Notifications.cancelAllScheduledNotificationsAsync();
@@ -367,11 +389,12 @@ const HomeScreen = ({navigation, route}) => {
               },
               trigger: {seconds: 1},
             });
-          }}
-        /> }
+          }}>
+            <Text style={{color: 'black', fontSize: 15}}>Schedule Times</Text>
+          </Pressable> }
   
         
-        { <Button
+        {/* { <Button
           style={styles.button}
           title="Go to Surveys"
         
@@ -385,11 +408,12 @@ const HomeScreen = ({navigation, route}) => {
           onPress={() =>
             navigation.navigate('Calendar')
           }
-        /> }
-        { <Button
-          style={styles.button}
-          title="Clear Notifications"
-          color='red'
+        /> } */}
+        { <Pressable
+          style={({pressed}) => [
+          {backgroundColor: pressed ? 'maroon' : 'orangered'},
+          styles.ClearButton,
+          ]}
           onPress={() => {
             //Noah: Use this function to remove all current notifications in the event that they are changing their times.
             Notifications.cancelAllScheduledNotificationsAsync();
@@ -400,8 +424,10 @@ const HomeScreen = ({navigation, route}) => {
               },
               trigger: {seconds: 1},
             });
-          }}
-        /> }
+            
+          }}>
+          <Text style={{color: 'white', fontSize: 15}}>Clear Notifications</Text>
+        </Pressable> }
       </View>
     );
   };
@@ -411,17 +437,23 @@ const HomeScreen = ({navigation, route}) => {
       flex: 1,
       backgroundColor: '#fff',
       alignItems:'center',
-      justifyContent: 'space-around',
+      // justifyContent: 'space-around',
     },
-    input: {// this doesn't affect anything
-      height: 40,
-      width: 200,
-      margin: 10,
-      borderStyle: 'solid',
-      borderWidth: 2,
-      borderRadius: 10,
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
       textAlign: 'center',
-    },
+      marginTop: 10,
+      marginBottom: 5,
+  },
+  subtitle: {
+      fontSize: 15,
+      fontWeight: 'normal',
+      fontStyle: 'italic',
+      textAlign: 'center',
+      margin: 0,
+      marginBottom: 15,
+  },
     surveyContainer: { // doesn't change anything
       flex: 1 / 4,
       width: '90%',
@@ -429,14 +461,6 @@ const HomeScreen = ({navigation, route}) => {
       backgroundColor: '#ccc',
       alignItems:'center',
       justifyContent: 'space-around',
-    },
-    button: { // doesn't change anything
-      height: 40,
-      width: '60%',
-      margin: 10,
-      padding: 20,
-      borderRadius: 50,
-      textAlign: 'center',
     },
     morningDropdowns:{ // changes the morning dropdown boxes
         justifyContent:'space-evenly',
@@ -446,6 +470,7 @@ const HomeScreen = ({navigation, route}) => {
         padding:20,
         paddingTop:5,
         zIndex:3,
+        marginTop: 10,
       },
       afternoonDropdowns:{ // changes the afternoon dropdown boxes
         justifyContent:'space-evenly',
@@ -455,6 +480,7 @@ const HomeScreen = ({navigation, route}) => {
         padding:20,
         paddingTop:5,
         zIndex:2,
+        marginTop: 10,
       },
       eveningDropdowns:{ // changes the evening dropdown boxes
         justifyContent:'space-evenly',
@@ -464,10 +490,66 @@ const HomeScreen = ({navigation, route}) => {
         padding:20,
         paddingTop:5,
         zIndex:1,
+        marginTop: 10,
       },
       threeSurveys:{ // this affects the titles of the three survey dropdowns (morning survey, afternoon survey, evening survey)
         fontWeight: 'bold',
-      }
-  });
+      },
+      Morning:{ // this affects the morning survey container
+        backgroundColor: 'rgba(219,218,140,0.7)',
+        borderRadius: 20,
+        alignItems:'center',
+        // justifyContent: 'space-around',
+        flex: 1 / 4,
+        maxHeight: 150,
+        width: '90%',
+        paddingTop: 15,
+        marginBottom: 10,
+        zIndex: 5,
+      },
 
-  export default HomeScreen
+      Afternoon:{ // this affects the afternoon survey container
+        backgroundColor: 'rgba(6,161,236,0.6)',
+        borderRadius: 20,
+        alignItems:'center',
+        // justifyContent: 'space-around',
+        flex: 1 / 4,
+        maxHeight: 150,
+        width: '90%',
+        paddingTop: 15,
+        marginBottom: 10,
+        zIndex: 4,
+      },
+
+      Evening:{ // this affects the evening survey container
+        backgroundColor: 'rgba(49,40,88,0.5)',
+        borderRadius: 20,
+        alignItems:'center',
+        // justifyContent: 'space-around',
+        flex: 1 / 4,
+        maxHeight: 150,
+        width: '90%',
+        paddingTop: 15,
+        marginBottom: 10,
+        zIndex: 3,
+      },
+
+      ClearButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 10,
+        width: 200,
+        height: 50,
+        borderRadius: 20,
+     },
+      ScheduleButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        margin: 10,
+        width: 200,
+        height: 50,
+        borderRadius: 20,
+      },
+    });
+
+  export default TimeScreen
