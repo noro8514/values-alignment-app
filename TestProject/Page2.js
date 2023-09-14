@@ -47,7 +47,7 @@ const FeedbackScreen = ({navigation, route}) => {
       //function to access the survey links from secure storage and save to useable variables
       useEffect(() => {
         const getSavedLinks = async () => {
-          const RetrievedLink1 = await SecureStore.getItemAsync('Survey1Link');
+          const RetrievedLink1 = localStorage.getItem('Survey1Link');
           setSurvey1Link(RetrievedLink1);
 
           const RetrievedLink2 = await SecureStore.getItemAsync('Survey2Link');
@@ -71,7 +71,7 @@ const FeedbackScreen = ({navigation, route}) => {
                 ]}
               onPress={() => {
                 //Linking.openURL('https://forms.gle/S77cc9RZPyK8R7Yp9');
-                Linking.openURL("'" + Survey1Link + "'")
+                Linking.openURL(Survey1Link)
                 console.log(Survey1Link);
               }}>
               <Text style={{fontSize: 17, color: 'black', fontWeight: '500'}}>Survey 1</Text>
@@ -84,7 +84,7 @@ const FeedbackScreen = ({navigation, route}) => {
                 ]}
               onPress={() => {
                 //Linking.openURL('https://forms.gle/Y55vHM5wwfmQA3T6A');
-                Linking.openURL("'" + Survey2Link + "'")
+                Linking.openURL(Survey2Link)
                 console.log(Survey2Link);
               }}>
               <Text style={{fontSize: 17, color: 'black', fontWeight: '500'}}>Survey 2</Text>
@@ -96,7 +96,7 @@ const FeedbackScreen = ({navigation, route}) => {
                 ]}
               onPress={() => {
                 //Linking.openURL('https://forms.gle/bfnoJQ5njbEXqZFR9');
-                Linking.openURL("'" + Survey3Link + "'")
+                Linking.openURL(Survey3Link)
                 console.log(Survey3Link);
               }}>
               <Text style={{fontSize: 17, color: 'black', fontWeight: '500'}}>Survey 3</Text>

@@ -127,7 +127,7 @@ async function scheduleNotificationAtTime(hour,minute,day, timeNum) {
 //First 'Home' Page with time select options
 const TimeScreen = ({route}) => {
     //For Notifications
-    //const [expoPushToken, setExpoPushToken] = useState('');
+    const [expoPushToken, setExpoPushToken] = useState('');
     const [notification, setNotification] = useState(false);
     const notificationListener = useRef();
     const responseListener = useRef();

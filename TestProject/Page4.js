@@ -36,7 +36,7 @@ const SettingsScreen = ({navigation, route}) => {
     //functions to save survey links to secure storage and set to default link if no link is entered
     const saveLink1 = async (link) => {
         const finalLink1 = link || 'https://forms.gle/S77cc9RZPyK8R7Yp9';
-        await SecureStore.setItemAsync('Survey1Link', finalLink1);
+        localStorage.setItem('Survey1Link', finalLink1);
         console.log(finalLink1);
     }
 
