@@ -9,6 +9,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DropDownPicker from 'react-native-dropdown-picker';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 
 
 //Shane: Function to  1. Convert time to 24 Hour format and split to hours and minutes,
@@ -66,9 +68,9 @@ async function scheduleNotificationAtTime(hour,minute,day, timeNum) {
         minute: thisMinute,
         repeats: true,
       },
-    }); 
+    });
   }
-  console.log("Notifs Scheduled..");
+  console.log("Notif Scheduled at " + thisHour + ":" + thisMinute);
 }
   
   
@@ -125,18 +127,72 @@ async function scheduleNotificationAtTime(hour,minute,day, timeNum) {
   }
 
 //First 'Home' Page with time select options
-const TimeScreen = ({route}) => {
+const TimeScreen = ({navigation, route}) => {
     //For Notifications
     const [expoPushToken, setExpoPushToken] = useState('');
     const [notification, setNotification] = useState(false);
     const notificationListener = useRef();
     const responseListener = useRef();
 
-    const [text, setText] = useState('');
-    const [text2, setText2] = useState('');
-    const [text3, setText3] = useState('');
+    const [Survey1, setSurvey1] = useState(false);
+    const [Survey2, setSurvey2] = useState(false);
+    const [Survey3, setSurvey3] = useState(false);
 
-    const {Survey1, Survey2, Survey3} = route.params || {};
+    // const [Survey1Link, setSurvey1Link] = useState('');
+    // const [Survey2Link, setSurvey2Link] = useState('');
+    // const [Survey3Link, setSurvey3Link] = useState('');
+
+    // useEffect(() => {
+    //   const loadData = async () => {
+    //     //Load the survey values
+    //       const RetrievedSurvey1 = await SecureStore.getItemAsync('Survey1');
+    //       setSurvey1(JSON.parse(RetrievedSurvey1));
+    //       //console.log(Survey1);
+
+    //       const RetrievedSurvey2 = await SecureStore.getItemAsync('Survey2');
+    //       setSurvey2(JSON.parse(RetrievedSurvey2));
+    //       //console.log(Survey2);
+
+    //       const RetrievedSurvey3 = await SecureStore.getItemAsync('Survey3');
+    //       setSurvey3(JSON.parse(RetrievedSurvey3));
+
+    //   };
+    //   loadData();
+    // }, []);
+
+    //function to load the survey links and values from secure storage and save to useable variables
+    useFocusEffect(
+      React.useCallback(() => {
+        const loadData = async () => {
+        //Load the survey values
+          const RetrievedSurvey1 = await SecureStore.getItemAsync('Survey1');
+          setSurvey1(JSON.parse(RetrievedSurvey1));
+          //console.log(Survey1);
+
+          const RetrievedSurvey2 = await SecureStore.getItemAsync('Survey2');
+          setSurvey2(JSON.parse(RetrievedSurvey2));
+          //console.log(Survey2);
+
+          const RetrievedSurvey3 = await SecureStore.getItemAsync('Survey3');
+          setSurvey3(JSON.parse(RetrievedSurvey3));
+          //console.log(Survey3);
+
+        //Load the survey links
+        //   const SavedLink1 = await SecureStore.getItemAsync('Survey1Link');
+        //   setSurvey1Link(SavedLink1);
+        // //console.log(Survey1Link);
+
+        //   const SavedLink2 = await SecureStore.getItemAsync('Survey2Link');
+        //   setSurvey2Link(SavedLink2);
+
+        //   const SavedLink3 = await SecureStore.getItemAsync('Survey3Link');
+        //   setSurvey3Link(SavedLink3);
+        };
+      loadData();
+      } , [])
+    );
+
+    //const {Survey1, Survey2, Survey3} = route.params || {};
 
     useEffect(() => {
         registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
@@ -379,9 +435,15 @@ const TimeScreen = ({route}) => {
           onPress={() => {
             //Noah: Use this function to remove all current notifications in the event that they are changing their times.
             Notifications.cancelAllScheduledNotificationsAsync();
-            scheduleNotificationAtTime(hour1, minute1, time1, 1);
-            scheduleNotificationAtTime(hour2, minute2, time2, 2);
-            scheduleNotificationAtTime(hour3, minute3, time3, 3);
+            {Survey1 && (
+              scheduleNotificationAtTime(hour1, minute1, time1, 1)
+            )}
+            {Survey2 && (
+              scheduleNotificationAtTime(hour2, minute2, time2, 2)
+            )}
+            {Survey3 && (
+              scheduleNotificationAtTime(hour3, minute3, time3, 3)
+            )}
             Notifications.scheduleNotificationAsync({
               content: {
                 title: "Notifications Started",
@@ -467,7 +529,7 @@ const TimeScreen = ({route}) => {
         flexDirection:'row',
         flex:1/10,
         flexWrap:'wrap',
-        padding:20,
+        padding:10,
         paddingTop:5,
         zIndex:3,
         marginTop: 10,
@@ -477,7 +539,7 @@ const TimeScreen = ({route}) => {
         flexDirection:'row',
         flex:1/10,
         flexWrap:'wrap',
-        padding:20,
+        padding:10,
         paddingTop:5,
         zIndex:2,
         marginTop: 10,
@@ -487,7 +549,7 @@ const TimeScreen = ({route}) => {
         flexDirection:'row',
         flex:1/10,
         flexWrap:'wrap',
-        padding:20,
+        padding:10,
         paddingTop:5,
         zIndex:1,
         marginTop: 10,

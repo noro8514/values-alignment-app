@@ -29,12 +29,12 @@ export default function App() {
       <Tab.Navigator
       screenOptions={{
         tabBarLabelStyle: { fontSize: 12 },
-        tabBarItemStyle: { height: 160, width: 100 },
+        tabBarItemStyle: { height: 150, width: 135 },
         tabBarStyle: { height: 100, backgroundColor: 'powderblue' },
         }}
       >
         <Tab.Screen name="Surveys" component={FeedbackScreen} options={{title: 'Surveys',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
-        <Tab.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
+        {/* <Tab.Screen name="Calendar" component={CalendarScreen} options={{title: 'Calendar',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/> */}
         <Tab.Screen name="Time Select" component={TimeScreen} options={{title: 'Time Select',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
         <Tab.Screen name="Settings" component={SettingsScreen} options={{title: 'Survey Settings',headerTitleStyle:{fontSize:'33',fontWeight:'500', fontFamily: 'Helvetica'}}}/>
       </Tab.Navigator>
