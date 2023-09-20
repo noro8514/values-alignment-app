@@ -24,9 +24,7 @@ export function parseDocblockString(docblock: string): DocblockDirectives {
 
   const directives: {
     [string]: Array<string>,
-  } =
-    // $FlowExpectedError[incompatible-type] - flow types  this return as {...}
-    Object.create(null);
+  } = {};
 
   for (const line of directiveLines) {
     const match = DIRECTIVE_REGEX.exec(line);
