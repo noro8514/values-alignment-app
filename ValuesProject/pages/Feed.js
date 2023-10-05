@@ -1,34 +1,29 @@
 //Imports
-import React from 'react';
-import { StyleSheet, Text, Image, Button, View, ScrollView } from 'react-native';
+import {React, useState} from 'react';
+import { StyleSheet, Text, Image, Button, View, ScrollView, TextInput} from 'react-native';
 import ExperienceCard from '../components/ExperienceCard'
 
-//Functions
+/* Experience class holds title, body, and values */
 class Experience {
-    constructor(title, body, values){
+    constructor(title, image, body, values){
         this.title=title;
+        this.image=image;
         this.body=body;
         this.values=values;
     }
 }
+/* example Experience */
 const testExp = new Experience(
     "My Experience", 
-    
+    require('../assets/lake-view.png'),
     "this is my experience", 
     [
-        {
-            id: '0',
-            title: 'Friendship'
-        },
-        {
-            id: '1',
-            title: 'Generosity'
-        },
-        {
-            id: '2',
-            title: 'Love'
-        },
-    ]);
+        {id: '0', title: 'Friendship'},
+        {id: '1', title: 'Generosity'},
+        {id: '2', title: 'Love'},
+    ]
+);
+
 
 //Feed Screen
 /* Each Experience element is rendered here and fills in information needed from Experience-component
@@ -36,30 +31,36 @@ const testExp = new Experience(
  * that is simply displayed here as a scrollable list
  * Nazhone
  */
-const FeedScreen = ({navigation, route}) => {
+const FeedScreen = () => {
+    const [text, setText] = useState('');
+    const testExp2 = new Experience(
+        [text], 
+        require('../assets/mall-trip.png'),
+        "this is my other experience", 
+        [
+            {id: '3', title: 'Creativity'},
+            {id: '4', title: 'Joy'},
+            {id: '2', title: 'Love'},
+        ]
+    );
     return (
         <View style={styles.container}>
+            <View>
+                <Text>Title:</Text>
+                <TextInput
+                    placeholder="Type here!"
+                    onChangeText={newText => setText(newText)}
+                    defaultValue={text}
+                />
+            </View>
             <ScrollView>
                 <ExperienceCard
-                    expData={{title:testExp.title, imageName:require('../assets/lake-view.png')}}
+                    expData={{title:testExp.title, imageName:testExp.image}}
                     valData={testExp.values}
                 />
-                <ExperienceCard 
-                    expData={{title:'Mall Trip', imageName:require('../assets/mall-trip.png')}}
-                    valData={[
-                        {
-                            id: '3',
-                            title: 'Creativity'
-                        },
-                        {
-                            id: '4',
-                            title: 'Joy'
-                        },
-                        {
-                            id: '2',
-                            title: 'Love'
-                        },
-                    ]}
+                <ExperienceCard
+                    expData={{title:testExp2.title, imageName:testExp2.image}}
+                    valData={testExp2.values}
                 />
             </ScrollView>
         </View>
