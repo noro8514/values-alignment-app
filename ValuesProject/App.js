@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './pages/Home';
 import ExploreNav from './pages/ExploreNavigation';
 //import ExploreListScreen from './pages/ExploreList';
-import NewExperienceScreen from './pages/Experience';
+import NewExperienceScreen from './pages/NewExperience';
 import FeedScreen from './pages/Feed';
 import ProfileNav from './pages/ProfileNavigation';
 //import SettingsScreen from './pages/Settings';
