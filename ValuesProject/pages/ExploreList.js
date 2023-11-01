@@ -1,30 +1,27 @@
 //Imports
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Value } from '../components/MasterClasses';
 import {ValueCard} from '../components/MasterComponents';
+import {masterValues} from '../components/MasterValues.json';
 
 //Functions
 
+let values = [];
+
+//Map json to values array
+
+//console.log(masterValues[0].title);
+for (let i = 0; i < masterValues.length; i++) {
+    //console.log(masterValues[i].name);
+    //console.log(masterValues[i].description);
+    values.push(new Value(masterValues[i].title, masterValues[i].definition));
+}
+
+
 //Explore List Screen
 const ExploreListScreen = ({navigation, route}) => {
-    const values = [
-        new Value('Friendship', 'The emotions or conduct of friends; the state of being friends.'),
-        new Value('Generosity', 'The quality of being kind and generous.'),
-        new Value('Love', 'An intense feeling of deep affection.'),
-        new Value('Creativity', 'The use of the imagination or original ideas, especially in the production of an artistic work.'),
-        new Value('Joy', 'A feeling of great pleasure and happiness.'),
-        new Value('Honesty', 'The quality of being honest.'),
-        new Value('Integrity', 'The quality of being honest and having strong moral principles; moral uprightness.'),
-        new Value('Respect', 'A feeling of deep admiration for someone or something elicited by their abilities, qualities, or achievements.'),
-        new Value('Self-Respect', 'Pride and confidence in oneself; a feeling that one is behaving with honor and dignity.'),
-        new Value('Courage', 'The ability to do something that frightens one; bravery.'),
-        new Value('Self-Care', 'The practice of taking action to preserve or improve one\'s own health.'),
-        new Value('Self-Compassion', 'Extending compassion to one\'s self in instances of perceived inadequacy, failure, or general suffering.'),
-        new Value('Self-Confidence', 'A feeling of trust in one\'s abilities, qualities, and judgement.'),
-        //etc..
-    ];
 
     return (
         <View style={styles.container}>

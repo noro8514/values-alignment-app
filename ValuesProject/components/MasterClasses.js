@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 export class Experience {
     constructor(title, body, values){
         this.title=title; //Title of the experience
-        this.body=body; //content of the experience (text)
+        this.body=body; //content of the experience (text captions)
         this.values=values; //Array of value objects for the value tags
 
         this.location=''; // Initialize 'location' as an empty string
         this.date=''; // Initialize 'date' as an empty string
 
-        this.textContent = ''; // Initialize 'textContent' as an empty string, Same as Body
+        //this.textContent = ''; // Initialize 'textContent' as an empty string, Same as Body
         this.imageName = '';  // Initialize 'imageSrc' as an empty string
         this.reflection=''; // Initialize 'reflection' as an empty string
     }
@@ -47,6 +47,7 @@ export class Value {
 
         this.numExperiences=0;
         this.color=''; // Initialize 'color' as an empty string
+        this.icon=''; // Initialize 'icon' as an empty string
     }
 
     //Possible useful method functions
@@ -69,6 +70,9 @@ export class Value {
     }
     setNumExperiences(num) {
         this.numExperiences=num;
+    }
+    setIcon(icon) {
+        this.icon=icon;
     }
 }
 
