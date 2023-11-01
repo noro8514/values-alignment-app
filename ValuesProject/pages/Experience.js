@@ -3,66 +3,38 @@ import { StatusBar } from 'expo-status-bar';
 import {React, useState} from 'react';
 import { StyleSheet, Text, Image, Button, View, ScrollView, TextInput} from 'react-native';
 import { Formik } from 'formik';
+import ImagePicker from 'react-native-image-picker';
 
 //Functions
 
 
 //New Experience Screen
 const NewExperienceScreen = ({navigation, route}) => {
+    const selectImage = (setFieldValue) => {
+        const options = {
+            title: 'Add an Image',
+            storageOptions: {
+                skipBackup:true,
+                path: 'images',
+            },
+        };
+        ImagePicker.showImagePicker(options, (response) => {
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            } else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            } else if (response.customButton) {
+                console.log('User tapped custom button: ', response.customButton);
+            } else {
+                const source = { uri: response.uri };
+                setFieldValue('image', source.uri);
+            }
+        });
+    };
 
     return (
-        <View style={styles.container}>
-            <Formik
-                initialValues={{ description: ''}} // decription is required
-                onSubmit={values => console.log(values)}
-            >{({ handleChange, handleBlur, handleSubmit, values }) => (
-                <View style='styles.container'>
-                    <View style={styles.innerContainer}>
-                        <Text>Title:</Text>
-                        <TextInput
-                            onChangeText={handleChange('title')}
-                            onBlur={handleBlur('title')}
-                            value={values.title}
-                            style={styles.input}
-                            placeholder="title"
-                        />
-                        <Text>Where:</Text>
-                        <TextInput
-                            onChangeText={handleChange('location')}
-                            onBlur={handleBlur('location')}
-                            value={values.location}
-                            style={styles.input}
-                            placeholder="location"
-                        />
-                        <Text>When:</Text>
-                        <TextInput
-                            onChangeText={handleChange('date')}
-                            onBlur={handleBlur('date')}
-                            value={values.date}
-                            style={styles.input}
-                            placeholder="date"
-                        />
-                    </View>
-                    <View style={styles.innerContainer}>
-                        <Text>Description:</Text>
-                        <TextInput
-                            editable
-                            multiline
-                            numberOfLines={10}
-                            maxLength={40}
-                            onChangeText={handleChange('description')}
-                            value={values.description}
-                            onBlur={handleBlur('description')}
-                            style={styles.input}
-                            placeholder="description"
-                        />
-                    </View>
-                    <Button onPress={handleSubmit} title="Submit" />
-                </View>
-
-                )}
-
-            </Formik>
+        <View>
+            <Text>Hello world</Text>
         </View>
     );
 }
