@@ -14,7 +14,7 @@ export function ExperienceCard({Experience}, {navigation}) {
 
                 <Button
                     style={styles.button}
-                    title="+"
+                    title="+ Reflect"
                     onPress={() =>
                         //Needs to navigate to reflection page or create a popup component
                         //navigation.navigate('NewExperience')
@@ -27,6 +27,8 @@ export function ExperienceCard({Experience}, {navigation}) {
                 style={styles.image}
                 source={Experience.imageName}
             />
+
+            <Text style={styles.ExpCaption}>{Experience.body}</Text>
 
             <ScrollView horizontal={true}>  
                 {/* <FlatList
@@ -63,7 +65,6 @@ export function ValueTag({Value}) {
             <Text style={styles.valTagTitle}>{Value.title}</Text>
         </View>
     );
-    //Value.incrementTimesUsed();
 };
 
 const styles = StyleSheet.create({
@@ -88,6 +89,14 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 30,
         fontWeight: 'normal',
+    },
+    ExpCaption: {
+        fontSize: 18,
+        fontWeight: 'normal',
+        marginTop: 5,
+        marginBottom: 10,
+        marginLeft: 10,
+        marginRight: 10,
     },
     image: {
         width: 350,
@@ -119,7 +128,7 @@ const styles = StyleSheet.create({
     //ValueCard Styles
     valCard: {
         width: '90%',
-        height: 100,
+        height: 120,
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
@@ -132,12 +141,14 @@ const styles = StyleSheet.create({
     valTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginLeft: 10,
-        marginRight: 10,
+        marginBottom: 7,
+        marginTop: 7,
         },
     valDef: {
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: 'normal',
         marginTop: 5,
+        marginLeft: 10,
+        marginRight: 10,
     },
 });

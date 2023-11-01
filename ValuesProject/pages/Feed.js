@@ -23,9 +23,9 @@ const testValue2 = new Value('Generosity', 'This is the definition of generosity
 const testValue3 = new Value('Love', 'This is the definition of love');
 
 const testExp = new Experience(
-    "My Experience", 
+    "(Test) Mall Trip!", 
     
-    "this is my experience content",
+    "(Content) I went to the mall",
     [
         testValue1,
         testValue2,
@@ -33,20 +33,35 @@ const testExp = new Experience(
     ]);
 testExp.imageName=require('../assets/mall-trip.png');
 
+const testExp2 = new Experience(
+    "(Test) Lake Trip!", 
+    
+    "(Content) I went to the lake",
+    [
+        testValue2,
+        testValue3,
+        testValue1
+    ]);
+testExp2.imageName=require('../assets/lake-view.png');
+
 //Feed Screen
 /* Each Experience element is rendered here and fills in information needed from Experience-component
  * Hoping to make the population done in the add experience section, and have that go into an array 
  * that is simply displayed here as a scrollable list
  * Nazhone
  */
+let ExperienceList = [];
+ExperienceList.push(testExp);
+ExperienceList.push(testExp2);
+
 const FeedScreen = ({navigation, route}) => {
     return (
         <View style={styles.container}>
             <ScrollView>
-                <ExperienceCard
-                    Experience={testExp}
-                    //navigation={navigation}
-                />
+            {ExperienceList.map((exp) => (
+                    <ExperienceCard Experience={exp}/>
+            ))}
+            {/* <ExperienceCard Experience={testExp}/> */}
             </ScrollView>
         </View>
     );

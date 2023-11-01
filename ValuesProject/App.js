@@ -31,7 +31,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Explore" component={ExploreNav} />
-        <Tab.Screen name="+" component={NewExperienceScreen} />
+        <Tab.Screen name="+" component={NewExperienceScreen} options={{headerTitle:" Create New Experience"}}/>
         <Tab.Screen name="Feed" component={FeedScreen} />
         <Tab.Screen name="Profile" component={ProfileNav} />
       </Tab.Navigator>
