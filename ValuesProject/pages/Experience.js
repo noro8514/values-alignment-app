@@ -1,9 +1,10 @@
 //Imports
 import { StatusBar } from 'expo-status-bar';
 import {React, useState} from 'react';
-import { StyleSheet, Text, Image, Button, View, ScrollView, TextInput} from 'react-native';
+import { StyleSheet, Text, Image, Button, View, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import { Formik } from 'formik';
-import ImagePicker from 'react-native-image-picker';
+import * as ImagePicker from 'react-native-image-picker'
+
 
 //Functions
 
@@ -33,9 +34,52 @@ const NewExperienceScreen = ({navigation, route}) => {
     };
 
     return (
-        <View>
-            <Text>Hello world</Text>
-        </View>
+        <Formik
+            initialValues={{ title: '', location: '', date: '', description: '', image: null }}
+            onSubmit={(values, {resetForm}) => {
+                // Display submitted data below the form
+                alert(JSON.stringify(values, null, 2));
+                resetForm();
+            }}
+        >
+            {({ handleChange, handleSubmit, setFieldValue, values }) => (
+                <View>
+                    <TextInput
+                        placeholder="Title"
+                        value={values.title}
+                        onChangeText={handleChange('title')}
+                    />
+
+                    <TextInput
+                        placeholder="Location"
+                        value={values.location}
+                        onChangeText={handleChange('location')}
+                    />
+
+                    <TextInput
+                        placeholder="Date"
+                        value={values.date}
+                        onChangeText={handleChange('date')}
+                    />
+
+                    <TextInput
+                        placeholder="Description"
+                        value={values.description}
+                        onChangeText={handleChange('description')}
+                    />
+
+                    <TouchableOpacity onPress={() => selectImage(setFieldValue)}>
+                        <View style={{ backgroundColor: 'blue', padding: 10 }}>
+                        <Text style={{ color: 'white' }}>Select Image</Text>
+                        </View>
+                    </TouchableOpacity>
+
+                    {values.image && <Image source={{ uri: values.image }} style={{ width: 200, height: 200 }} />}
+
+                    <Button title="Submit" onPress={handleSubmit} />
+                </View>
+            )}
+        </Formik>
     );
 }
 
