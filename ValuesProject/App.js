@@ -9,7 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './pages/Home';
 import ExploreNav from './pages/ExploreNavigation';
 //import ExploreListScreen from './pages/ExploreList';
-import NewExperienceScreen from './pages/Experience';
+import NewExperienceScreen from './pages/NewExperience';
 import FeedScreen from './pages/Feed';
 import ProfileNav from './pages/ProfileNavigation';
 //import SettingsScreen from './pages/Settings';
@@ -31,7 +31,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={HomeScreen} />
         <Tab.Screen name="Explore" component={ExploreNav} />
-        <Tab.Screen name="+" component={NewExperienceScreen} />
+        <Tab.Screen name="+" component={NewExperienceScreen} options={{headerTitle:" Create New Experience"}}/>
         <Tab.Screen name="Feed" component={FeedScreen} />
         <Tab.Screen name="Profile" component={ProfileNav} />
       </Tab.Navigator>

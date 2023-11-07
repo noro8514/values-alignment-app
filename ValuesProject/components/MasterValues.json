@@ -1,0 +1,652 @@
+{
+    "masterValues": [
+      {
+        "title": "Achievement",
+        "definition": "Drive to accomplish a successful result that is noteworthy or admirable",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Adventure",
+        "definition": "Planning and experiencing events that are extraordinary, exciting or daring.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Authenticity",
+        "definition": "Acting in ways that show your true self and how you feel. Genuine expression.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Authority",
+        "definition": "A high level of knowledge or skill and the ability to influence others.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Autonomy",
+        "definition": "The power to make your own choices or decisions.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Balance",
+        "definition": "Pleasing or suitable arrangements or perspective on life",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Beauty",
+        "definition": "Pleasure through observing that which is aesthetically appealing.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Belonging",
+        "definition": "A feeling of connectedness. Feeling at home and being part of a group.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Boldness",
+        "definition": "The inclination or willingness to take risks in pursuit of a goal.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Challenge",
+        "definition": "Performing a difficult feat, or demanding the truth or rightness in a given situation.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Community",
+        "definition": "A group created or existing for the purpose of ongoing mutual support.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Compassion",
+        "definition": "Taking action to care for, support and understand those who are suffering. An expression of love.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Competence",
+        "definition": "The physical or mental power to get something done successfully.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Connection",
+        "definition": "Close relationships with people formed by emotional bonds and interactions.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Creativity",
+        "definition": "The use of the imagination or original ideas to enhance the world and our life in it.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Curiosity",
+        "definition": "A strong desire to know or learn something. Inquisitive interest",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Determination",
+        "definition": "A firm or unwavering resolve to one’s purpose.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Diversity",
+        "definition": "The practice of including people with a range of human differences.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Fairness",
+        "definition": "Equitable treatment, devoid of bias, discrimination, and prejudice.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Faith",
+        "definition": "A strong belief, trust, or confidence in something, often religious or spiritual.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Family",
+        "definition": "Devotion to your family, providing love, support, and shared bonds of kinship.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Freedom",
+        "definition": "The ability to act or move freely without the control or power of another.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Friendship",
+        "definition": "Having friends to share things and experiences with. To give and receive kindness or support.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Fun",
+        "definition": "Light-hearted pleasure, humor, enjoyment or amusement.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Generosity",
+        "definition": "Selfless giving, sharing resources, and kindness toward others, without expectation of return.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Growth",
+        "definition": "Develop and expand to make a better version than already exists.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Happiness",
+        "definition": "The feeling or state of well-being and contentment.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Harmony",
+        "definition": "Balance and compatibility. A life that is orderly and pleasing as a whole.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Health",
+        "definition": "The state of complete physical, mental and social well-being.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Honesty",
+        "definition": "Honorable and upright in principles, intentions, and actions. Truthful.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Hope",
+        "definition": " An expectation or desire for things to change for the better.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Humor",
+        "definition": "The ability to see the amusing quality or element in something.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Inclusion",
+        "definition": "Providing equal access and resources for people who might otherwise be excluded.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Independence",
+        "definition": "The ability to care for oneself and be free from the control of another.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Influence",
+        "definition": "Ability to direct the thinking or behavior of others.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Inner Harmony",
+        "definition": "Emotional and mental poise, happiness, confidence and inner strength.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Joy",
+        "definition": "The feeling of great pleasure and happiness. To rejoice.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Justice",
+        "definition": "Fair and equitable treatment, upholding rights and resolving disputes impartially.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Kindness",
+        "definition": "The quality of being friendly, generous, and considerate.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Knowledge",
+        "definition": " Awareness, understanding, or information that has been learnt by experience or study.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Leadership",
+        "definition": "The capacity to guide and influence the effort of others towards a goal.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Learning",
+        "definition": "The acquisition of knowledge or skills through study, experience, or being taught.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Love",
+        "definition": "A strong feeling of constant dedication, care and regard for someone or something.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Loyalty",
+        "definition": "The strict observance of promises and duties in relationships.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Meaningful Work",
+        "definition": " Work that aligns with your personal values and you feel part of something bigger.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Nature",
+        "definition": "Care for living organisms and other features of the environment.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Openness",
+        "definition": "Free expression of true feelings and a receptivity to new things.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Optimism",
+        "definition": "An inclination to believe in the most favorable outcome.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Peace",
+        "definition": "A stress-free state and calmness, harmony, absence of conflict or violence.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Perseverance",
+        "definition": "The ability to keep doing something in spite of obstacles or challenges.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Pleasure",
+        "definition": "Someone or something providing amusement or enjoyment.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Recognition",
+        "definition": "Being publicly acknowledged or known for something (such as an achievement).",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Reputation",
+        "definition": "Perceived image or standing based on actions and public opinion.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Respect",
+        "definition": "Showing of deep regard for someone’s feelings, wishes, or rights.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Responsibility",
+        "definition": "Being answerable for something within one’s power, control, or management.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Risk Taking",
+        "definition": "Willing to do things that involve danger to achieve a goal.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Safety",
+        "definition": "Avoidance of injury, danger or loss. Protecting yourself and others.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Security",
+        "definition": "Protection, safety, and confidence in freedom from harm or danger.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Self-Respect",
+        "definition": "A positive sense of worth and dignity within oneself.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Service",
+        "definition": "Sharing your unique gifts and skills to help or assist others or a community.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Spirituality",
+        "definition": "Recognition of a sense or belief that there is something greater than oneself.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Stability",
+        "definition": "The state of continuing without change or the ability to withstand force or stress.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Success",
+        "definition": "The status of having achieved or accomplished a goal or objective.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Teamwork",
+        "definition": "Being part of a group where individuals contribute toward the success of all.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Tradition",
+        "definition": "Cultural customs, beliefs, or practices passed down through generations.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Travel",
+        "definition": "Journeying to new places, experiencing cultures, and exploring the world.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Trustworthy",
+        "definition": "Reliable, honest, and consistent in keeping promises and maintaining integrity.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Truth",
+        "definition": "The intense pursuit and discovery of ultimate truth above all other activities.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Uniqueness",
+        "definition": "Having distinctive qualities or characteristics that set someone or something apart.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Vision",
+        "definition": "A clear, inspiring picture of a desired future or goal.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Wellbeing",
+        "definition": "A state of physical, mental, and emotional health and happiness.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Wisdom",
+        "definition": "Deep knowledge, experience, and good judgment applied to life's challenges.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      }    
+    ]
+}

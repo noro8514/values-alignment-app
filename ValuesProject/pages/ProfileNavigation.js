@@ -18,8 +18,8 @@ const ProfileStack = createNativeStackNavigator();
 const ProfileNav = ({navigation, route}) => {
     return (
       <ProfileStack.Navigator>
-        <ProfileStack.Screen name="Profile" component={ProfileScreen} options={{headerShown: false,}}/>
-        <ProfileStack.Screen name="Settings" component={SettingsScreen} />
+        <ProfileStack.Screen name="ProfileHome" component={ProfileScreen} options={{headerShown: false,}}/>
+        <ProfileStack.Screen name="Settings" component={SettingsScreen}/>
         <ProfileStack.Screen name="Achievements" component={AchievementsScreen} />
       </ProfileStack.Navigator>
     );
