@@ -1,9 +1,10 @@
 //Imports
 import { StatusBar } from 'expo-status-bar';
-import {React, useState} from 'react';
+import {React, useState, useEffect, useContext, useCallback } from 'react';
 import { StyleSheet, Text, Image, Button, View, ScrollView, TouchableOpacity, TextInput} from 'react-native';
 import { Formik } from 'formik';
-import * as ImagePicker from 'react-native-image-picker'
+import * as ImagePicker from 'expo-image-picker'
+
 
 
 //Functions
@@ -11,26 +12,21 @@ import * as ImagePicker from 'react-native-image-picker'
 
 //New Experience Screen
 const NewExperienceScreen = ({navigation, route}) => {
-    const selectImage = (setFieldValue) => {
-        const options = {
-            title: 'Add an Image',
-            storageOptions: {
-                skipBackup:true,
-                path: 'images',
-            },
-        };
-        ImagePicker.showImagePicker(options, (response) => {
-            if (response.didCancel) {
-                console.log('User cancelled image picker');
-            } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
-            } else if (response.customButton) {
-                console.log('User tapped custom button: ', response.customButton);
-            } else {
-                const source = { uri: response.uri };
-                setFieldValue('image', source.uri);
-            }
+    const [image, setImage] = useState(null);
+
+    const pickImage = async () => {
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [4, 4],
+            quality: 1,
         });
+    
+        console.log(result);
+    
+        if (!result.canceled) {
+            setImage(result.assets[0].uri);
+        }
     };
 
     return (
@@ -68,15 +64,11 @@ const NewExperienceScreen = ({navigation, route}) => {
                         onChangeText={handleChange('description')}
                     />
 
-                    <TouchableOpacity onPress={() => selectImage(setFieldValue)}>
-                        <View style={{ backgroundColor: 'blue', padding: 10 }}>
-                        <Text style={{ color: 'white' }}>Select Image</Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    {values.image && <Image source={{ uri: values.image }} style={{ width: 200, height: 200 }} />}
+                    <Button title="pick image" onPress={pickImage} />
 
                     <Button title="Submit" onPress={handleSubmit} />
+
+                    {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
                 </View>
             )}
         </Formik>
