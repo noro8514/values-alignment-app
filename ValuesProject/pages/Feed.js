@@ -57,6 +57,14 @@ ExperienceList.push(testExp2);
 const FeedScreen = ({navigation, route}) => {
     return (
         <View style={styles.container}>
+            <View>
+                <Text>Title:</Text>
+                <TextInput
+                    placeholder="Type here!"
+                    onChangeText={newText => setText(newText)}
+                    defaultValue={text}
+                />
+            </View>
             <ScrollView>
             {ExperienceList.map((exp) => (
                     <ExperienceCard Experience={exp}/>
