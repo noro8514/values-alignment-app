@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, FlatList, Image, Text, StyleSheet, Dimensions} from 'react-native';
+import { TouchableOpacity, View, FlatList, Image, Text, StyleSheet, Dimensions} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+// import MasterValues from '../components/MasterValues.json';
 
-const { height } = Dimensions.get('window');
+const { height } = Dimensions.get('window'); // get height to fill screen
+
+/* Hide bottom navigation bar */
 export function useHideBottomBar() {
     const navigation = useNavigation();
 
@@ -13,34 +16,50 @@ export function useHideBottomBar() {
     }, [navigation]);
 }
 
-// const storiesData = [
-//   // Data for stories: You can fetch this from an API or define locally
-//   { id: 1, username: 'user1', imageUrl: 'https://example.com/image1.jpg' },
-//   { id: 2, username: 'user2', imageUrl: 'https://example.com/image2.jpg' },
-//   // Add more story objects as needed
-// ];
-
-// const Story = ({ username, imageUrl }) => (
-//   <View style={styles.storyContainer}>
-//     <Image source={{ uri: imageUrl }} style={styles.storyImage} />
-//     <Text style={styles.username}>{username}</Text>
-//   </View>
-// );
+/* story data */
+const valueData = [
+    {
+        "title": "Achievement",
+        "definition": "Drive to accomplish a successful result that is noteworthy or admirable",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Adventure",
+        "definition": "Planning and experiencing events that are extraordinary, exciting or daring.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+      {
+        "title": "Authenticity",
+        "definition": "Acting in ways that show your true self and how you feel. Genuine expression.",
+        "hasBeenUsed": false,
+        "timesUsedThisMonth": 0,
+        "numExperiences": 0,
+        "color": "",
+        "icon": ""
+      },
+];
 
 const StoryScreen = () => {
     useHideBottomBar();
     const navigation = useNavigation();
 
-    const colorsData = ['black', 'blue', 'green']; // Define the colors to switch between
-    const [currentColorIndex, setCurrentColorIndex] = useState(0);
+    const [valueIndex, setValueIndex] = useState(0);
 
     useEffect(() => {
-        // Function to switch to the next color after a set duration (e.g., 5 seconds)
-        var nextIndex = currentColorIndex;
+        // Function to switch to the next value after a set duration (e.g., 5 seconds)
+        var nextIndex = valueIndex;
         const timer = setTimeout(() => {
             nextIndex += 1;
-            if(nextIndex < colorsData.length){
-                setCurrentColorIndex(nextIndex);
+            if(nextIndex < valueData.length){
+                setValueIndex(nextIndex);
             }
             else {
                 navigation.navigate('Home1')
@@ -49,27 +68,18 @@ const StoryScreen = () => {
     
         // Clear the timer when the component unmounts or when the current color index changes
         return () => clearTimeout(timer);
-    }, [currentColorIndex]);
+    }, [valueIndex]);
     
-    const currentColor = colorsData[currentColorIndex];
+    const currentValue = valueData[valueIndex];
     
     return (
-        // <FlatList
-        // data={storiesData}
-        // horizontal
-        // showsHorizontalScrollIndicator={false}
-        // keyExtractor={(item) => item.id.toString()}
-        // renderItem={({ item }) => (
-        //     <Story username={item.username} imageUrl={item.imageUrl} />
-        // )}
-        // />
-        
-        <View style={[styles.storyContainer, { backgroundColor: currentColor }]}>
-            <Button
-                title="X"
-                onPress={() => navigation.navigate('Home1')}
-            />
-            <Text style={styles.text}>Current Color: {currentColor}</Text>
+        <View style={[styles.storyContainer]}>
+            
+            <TouchableOpacity onPress={() => navigation.navigate('Home1')} style={styles.exit}>
+                <Text style={styles.text}>X</Text>
+            </TouchableOpacity>
+            <Text style={styles.text}>you value</Text>
+            <Text style={styles.h1}>{currentValue.title}</Text>
         </View>
     );
 };
@@ -80,17 +90,33 @@ const styles = StyleSheet.create({
     height: height,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'black',
+  },
+  h1: {
+    color: '#fff',
+    fontWeight: "900",
+    fontSize: 40,
+    lineHeight: 50,
+    // fontFamily: 'Lexend',
+  },
+  text: {
+    color: '#fff',
+    // fontFamily: 'Lexend',
+    fontWeight: 400,
+    fontSize: 18,
+    lineHeight: 22.5,
+  },
+  exit: {
+    position: 'absolute',
+    top: 40,
+    right: 40,
   },
   storyImage: {
     width: 70,
     height: 70,
     borderRadius: 35,
     borderWidth: 2,
-    borderColor: 'pink',
-  },
-  username: {
-    marginTop: 5,
-    fontSize: 12,
+    borderColor: 'white',
   },
 });
 
