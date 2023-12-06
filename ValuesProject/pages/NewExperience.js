@@ -22,6 +22,7 @@ const NewExperienceScreen = ({navigation, route}) => {
             quality: 1,
         });
     
+        
         console.log(result);
     
         if (!result.canceled) {
@@ -38,7 +39,7 @@ const NewExperienceScreen = ({navigation, route}) => {
                 resetForm();
             }}
         >
-            {({ handleChange, handleSubmit, setFieldValue, values }) => (
+            {({ handleChange, handleSubmit, values }) => (
                 <View>
                     <TextInput
                         placeholder="Title"
@@ -64,7 +65,7 @@ const NewExperienceScreen = ({navigation, route}) => {
                         onChangeText={handleChange('description')}
                     />
 
-                    <Button title="pick image" onPress={pickImage} />
+                    <Button title="pick image" onPress={pickImage} value={values.image} />
 
                     <Button title="Submit" onPress={handleSubmit} />
 
