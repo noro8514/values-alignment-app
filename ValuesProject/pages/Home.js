@@ -1,13 +1,11 @@
 //Imports
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import CircularProgress from 'react-native-circular-progress-indicator';
 
 var moment = require('moment');
-
-//Functions
 
 //Home Screen
 const HomeScreen = ({navigation, route}) => {
@@ -33,6 +31,11 @@ const HomeScreen = ({navigation, route}) => {
 
     return (
         <View style={styles.page}>
+            <Button
+                title="Go to Story"
+                onPress={() => navigation.navigate('Story')}
+            />
+
             <Text style={styles.header}> Good Morning,</Text>
             <Text style={styles.name}>{name}</Text>
 
